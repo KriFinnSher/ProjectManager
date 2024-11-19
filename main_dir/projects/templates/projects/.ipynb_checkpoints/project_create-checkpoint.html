@@ -1,0 +1,80 @@
+{% extends 'main_app/layout.html' %}
+
+{% block title %}
+Создание проекта
+{% endblock %}
+
+{% block content %}
+<div class="project_create_body">
+    <div class="form-container">
+        <h2>Создание проекта</h2>
+        <form action="/projects/submit_form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Введите название вашей команды: </label>
+                <input type="text" id="team_name" name="team_name" placeholder="Мое название">
+            </div>
+
+            <div class="form-group">
+                <label>Введите тему вашего проекта: </label>
+                <input type="text" id="project_name" name="project_name" placeholder="Моя тема">
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Выберите предмет из списка:</label>
+                <select id="subject" name="subject">
+                    <option value="subject1">Предмет 1</option>
+                    <option value="subject2">Предмет 2</option>
+                    <option value="subject3">Предмет 3</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Укажите тип проекта:</label>
+                <div class="radio-group">
+                    <input type="radio" id="individual" name="project_type" value="individual">
+                    <label for="individual">Одиночный</label>
+                    <input type="radio" id="team" name="project_type" value="team" checked>
+                    <label for="team">Командный</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Укажите ФИО каждого участника и выберите лидера*:</label>
+                <small class="small_text">*Лидер может (и должен) быть только один</small>
+                <div class="add-member-group">
+                    <input type="text" id="participant_name" name="participant_name" placeholder="ФИО участника">
+                    <button class="add_button" type="button" onclick="addParticipant()">Добавить</button>
+                    <div class="leader-checkbox">
+                        <input type="checkbox" id="leader" name="leader">
+                        <label for="leader">Лидер</label>
+                    </div>
+                </div>
+                <div id="participants-list">
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="status">Укажите текущий статус проекта:</label>
+                <select id="status" name="status">
+                    <option value="not_started">Не начат</option>
+                    <option value="in_progress">В процессе</option>
+                    <option value="completed">Завершен</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Загрузите файлы проекта (отчеты, программы, схемы и т.д.):</label>
+                <div class="file-drop-area" id="file-drop-area">
+                    Перетащите файлы сюда или щелкните, чтобы выбрать файлы
+                    <input type="file" name="project_files[]" id="project_files" multiple style="display:none;">
+                </div>
+            </div>
+            <button class="create_button" type="submit">Создать</button>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

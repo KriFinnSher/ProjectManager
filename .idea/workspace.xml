@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="13eab148-53e0-4134-b0d6-16a24dcd7336" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/at_project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/bmo_sushine.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/f&amp;j.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/git_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/jake_aside.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/night_rain_th.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/old_tree.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/pink_th.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/sunshine_th.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/tg_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/th_kr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/tree_house.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/vk_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/templates/main_app/help.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/templates/main_app/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/templates/main_app/main_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/templates/main_app/rating.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/main_app/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/projects/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/projects/services.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/projects/static/projects/css/project_create.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/projects/static/projects/image/jake_but.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/projects/static/projects/image/th_.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/projects/static/projects/js/project_participants.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/projects/templates/projects/project_create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/projects/templates/projects/project_details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/projects/templates/projects/project_main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/projects/urls.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2omoWimu3wJqfhNWIOe0w6PmTL6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gwert\PycharmProjects\at_project\main_dir\projects\static\projects\image" />
+      <recent name="C:\Users\gwert\PycharmProjects\at_project\main_dir\projects\static\projects\img" />
+      <recent name="C:\Users\gwert\PycharmProjects\at_project\main_dir\main_app\static\main_app\image" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="at_project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
+        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="13eab148-53e0-4134-b0d6-16a24dcd7336" name="Changes" comment="" />
+      <created>1731484145469</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731484145469</updated>
+      <workItem from="1731531685152" duration="36000" />
+      <workItem from="1731536372739" duration="780000" />
+      <workItem from="1731537167136" duration="27000" />
+      <workItem from="1731572708887" duration="8000" />
+      <workItem from="1731573111447" duration="11000" />
+      <workItem from="1731580405978" duration="12048000" />
+      <workItem from="1731663215155" duration="14227000" />
+      <workItem from="1731682146920" duration="30000" />
+      <workItem from="1732015786586" duration="164000" />
+      <workItem from="1732015958742" duration="1411000" />
+      <workItem from="1732022445178" duration="8647000" />
+      <workItem from="1732034697201" duration="8968000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

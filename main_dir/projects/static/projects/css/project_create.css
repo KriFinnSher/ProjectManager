@@ -1,0 +1,139 @@
+.project_create_body {
+    font-family: 'Courier New', monospace;
+    font-size: 15pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-x: hidden;
+    background-image: url("/static/projects/image/th_.gif");
+    background-size: cover;
+    background-position: center;
+}
+.form-container {
+    border: 2px solid #000;
+    width: 60%;
+    height: 100vh;
+    background-color: #ffc600;
+    box-sizing: border-box;
+}
+.form-container h2 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 2%;
+}
+
+input::placeholder, select, option, button {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+}
+
+select, .temp {
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e8a700;
+
+    width: 30%;
+    padding: 1%;
+
+    border: 1px solid #000;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+
+.file-drop-area {
+    margin-top: 2%;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e8a700;
+}
+
+.radio-group {
+    margin-top: 1%;
+    margin-bottom: 3%;
+
+}
+
+.leader-checkbox {
+    display: inline-flex;
+    align-items: center;
+}
+
+.small_text {
+    display: block;
+}
+
+.file-drop-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 2px dashed #000;
+    border-radius: 4px;
+    background-color: #e8a700;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+.add-member-group {
+    display: block;
+    padding: 20px;
+}
+
+.add_button {
+    display: inline-block;
+    margin-top: 1%;
+    padding: 4px 8px;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 20px;
+    -webkit-text-stroke: 0.2px black;
+    border: 1px solid black;
+    background-image: url("/static/projects/image/jake_but.jpg");
+    background-size: cover;
+    background-position: center;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:hover {
+    background-color: #d39700;
+}
+
+body {
+    user-select: none;
+}
+
+.create_button {
+    width: 25%;
+    height: 7vh;
+    margin-top: 1%;
+    background-color: #e8a700;
+    border-radius: 7px;
+    transition: all 0.2s ease;
+}
+
+.remove_button {
+    background-color: #ffc026;
+}
+
+#participants-list {
+    font-size: 12pt;
+    max-height: 80px;
+    height: 10%;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+    padding: 1%;
+    border: 1px solid #e8a700;
+}

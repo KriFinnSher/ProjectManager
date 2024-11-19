@@ -1,0 +1,29 @@
+{% extends 'main_app/layout.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+    <div class="main_block page_create">
+        Регистрируйся, создавай проект и управляй им прямо на сайте
+        <a href="{% url 'create_project' %}" class="btn">Создать проект</a>
+    </div>
+    <div class="main_block page_rating">
+        Соревнуйся с другими командами из своего университета
+        <a href="{% url 'rating' %}" class="btn">Рейтинг</a>
+    </div>
+    <div class="main_block page_news">
+        Следи за последними новостями на сайте
+        <a href="#" class="btn">Анонсы</a>
+    </div>
+    <div class="main_block page_media">
+        А еще можешь зайти в мои соцсети #_#
+        <div class="social_media_container">
+            <a href="https://t.me/KriFinnSher" target="_blank" rel="noopener noreferrer" class="social_media tg_icon"></a>
+            <a href="https://vk.com/pelenai" target="_blank" rel="noopener noreferrer" class="social_media vk_icon"></a>
+            <a href="https://github.com/KriFinnSher" target="_blank" rel="noopener noreferrer" class="social_media git_icon"></a>
+        </div>
+
+    </div>
+{% endblock %}

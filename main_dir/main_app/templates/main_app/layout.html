@@ -1,0 +1,30 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'main_app/css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'projects/css/project_create.css' %}">
+  <script src="{% static 'projects/js/project_participants.js' %}"></script>
+</head>
+<body class="aside-body">
+  <aside class="aside-block">
+    <ul>
+      <a href="{% url 'main_page' %}"><li>Главная</li></a>
+      <a href=""><li>Новости</li></a>
+      <a href="{% url 'rating' %}"><li>Рейтинг</li></a>
+      <a href="{% url 'project_main' %}"><li>Проекты</li></a>
+      <a href="{% url 'help' %}"><li>Помощь</li></a>
+    </ul>
+  </aside>
+<main class="main_content">
+  {% block content %}
+  {% endblock %}
+</main>
+</body>
+</html>

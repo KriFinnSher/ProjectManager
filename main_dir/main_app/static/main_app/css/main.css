@@ -1,0 +1,146 @@
+.aside-block {
+    position: fixed;
+    background-image: url('/static/main_app/image/jake_aside.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+    width: 20%;
+    height: 100vh;
+    float: left;
+    border-right: 5px solid #656778;
+}
+
+.aside-block ul {
+    list-style-type: none;
+}
+
+.aside-block ul li {
+    user-select: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 36px;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 18%;
+    -webkit-text-stroke: 0.5px black;
+    transition: 0.2s ease;
+}
+
+.aside-block ul li:hover, .aside-block ul a:hover {
+
+    transform: scale(1.05);
+}
+
+.aside-body {
+    margin: 0;
+    padding: 0;
+}
+
+.aside-block ul a {text-decoration: none;}
+
+.main_content {
+    width: 80%;
+    text-align: center;
+    float: right;
+}
+
+.main_block {
+    user-select: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+    color: #fff;
+    font-weight: bold;
+    -webkit-text-stroke: 1px black;
+    border-bottom: 5px solid #656778;
+
+    padding-top: 2%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+    padding-left: 10%;
+
+    transition: background-position 0.9s ease;
+}
+
+.main_block:hover {
+    background-position: center center;
+}
+
+
+.page_create {
+    background-image: url('/static/main_app/image/tree_house.png');
+}
+
+.page_rating {
+    background-image: url('/static/main_app/image/th_kr.png');
+}
+
+.page_news {
+    background-image: url('/static/main_app/image/sunshine_th.jpg');
+}
+
+.page_media {
+    background-image: url('/static/main_app/image/night_rain_th.png');
+}
+
+.btn {
+    margin-top: 2%;
+    user-select: none;
+    display: block;
+    width: 10%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: #000;
+    color: white;
+    padding: 10px 30px;
+    border: 3px solid white;
+    border-radius: 10px;
+    font-size: 32px;
+    -webkit-text-stroke: 0.5px black;
+    text-decoration: none;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #000;
+    border-color: #000;
+}
+
+.social_media_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3%;
+}
+
+.social_media {
+    margin-top: 5%;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.2s ease;
+    user-select: none;
+}
+
+.tg_icon {
+    background-image: url('/static/main_app/image/tg_icon.png');
+}
+
+.vk_icon {
+    background-image: url('/static/main_app/image/vk_icon.png');
+}
+
+.git_icon {
+    background-image: url('/static/main_app/image/git_icon.png');
+}
+
+.social_media:hover {
+    transform: scale(1.15);
+}
