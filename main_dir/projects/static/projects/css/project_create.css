@@ -30,7 +30,7 @@ input::placeholder, select, option, button {
     font-size: 16px;
 }
 
-select, .temp {
+.create_select, .temp {
     display: inline-flex;
     margin-left: auto;
     margin-right: auto;
@@ -101,11 +101,27 @@ select, .temp {
     transition: all 0.2s ease;
 }
 
-button:hover {
+.add_button:hover {
     transform: scale(1.05);
 }
 
-button:hover {
+.add_button:hover {
+    background-color: #d39700;
+}
+
+.create_button:hover {
+    transform: scale(1.05);
+}
+
+.create_button:hover {
+    background-color: #d39700;
+}
+
+.remove_button:hover {
+    transform: scale(1.05);
+}
+
+.remove_button:hover {
     background-color: #d39700;
 }
 
@@ -127,6 +143,158 @@ body {
 }
 
 #participants-list {
+    font-size: 12pt;
+    max-height: 80px;
+    height: 10%;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+    padding: 1%;
+    border: 1px solid #e8a700;
+}
+
+.project_select {
+    display: inline-flex;
+
+    background-color: #fff;
+
+    width: 11%;
+    height: 4vh;
+    margin-right: 2%;
+
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.empty_block {
+    display: block;
+    margin-top: 3%;
+    font-family: 'Courier New', monospace;
+    font-size: 24px;
+
+}
+
+.project_hr {
+    width: 60%;
+    margin-top: 2%;
+    height: 0.5vh;
+    background-color: #281b6e;
+}
+
+.btn_ {
+    padding: 1%;
+    color: #fff;
+    display: block;
+    margin-top: 1%;
+    font-family: 'Courier New', monospace;
+    font-size: 15pt;
+    border: 1px solid black;
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    user-select: none;
+    text-decoration: none;
+    background-color: #281b6e;
+    transition-duration: 0.2s;
+}
+
+.btn_:hover {
+    transform: scale(1.05);
+}
+
+.btn_:hover {
+    background-color: #321f93;
+}
+
+
+.project-card {
+    font-family: 'Courier New', monospace;
+    margin-bottom: 0.5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    padding: 20px;
+    background-color: #462dca;
+    border: 2px solid #1a0e55;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e8e6ff;
+}
+
+.subject-name {
+    font-size: 18px;
+    color: #111;
+    margin-top: 10px;
+}
+
+.project-status {
+    font-size: 14px;
+    color: #959494;
+    margin-top: 10px;
+}
+
+.modal {
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.participant_ul {
+    list-style-type: none;
+    margin-right: 7%;
+
+}
+
+.file-list {
+    margin-top: 1%;
     font-size: 12pt;
     max-height: 80px;
     height: 10%;

@@ -21,6 +21,20 @@
       <a href="{% url 'project_main' %}"><li>Проекты</li></a>
       <a href="{% url 'help' %}"><li>Помощь</li></a>
     </ul>
+    {% if user.is_authenticated %}
+    <a class="user_name_ref" href="{% url 'profile' %}">{{ user.full_name }}</a>
+    <form method="post" action="{% url 'logout' %}" style="display:inline;">
+        {% csrf_token %}
+        <button class="logout_btn" type="submit">Выход</button>
+    </form>
+    {% else %}
+        <a href="{% url 'login' %}">
+            <button class="login_btn">Вход</button>
+        </a>
+        <a href="{% url 'register' %}">
+            <button class="register_btn">Регистрация</button>
+        </a>
+    {% endif %}
   </aside>
 <main class="main_content">
   {% block content %}

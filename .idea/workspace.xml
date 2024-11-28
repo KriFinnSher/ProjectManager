@@ -4,44 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13eab148-53e0-4134-b0d6-16a24dcd7336" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/at_project.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/bmo_sushine.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/f&amp;j.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/git_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/jake_aside.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/night_rain_th.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/old_tree.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/pink_th.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/sunshine_th.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/tg_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/th_kr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/tree_house.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/image/vk_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/templates/main_app/help.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/templates/main_app/layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/templates/main_app/main_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/templates/main_app/rating.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/main_app/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/projects/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/projects/services.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/projects/static/projects/css/project_create.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/projects/static/projects/image/jake_but.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/projects/static/projects/image/th_.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/projects/static/projects/js/project_participants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/projects/templates/projects/project_create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/projects/templates/projects/project_details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/projects/templates/projects/project_main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_dir/projects/urls.py" afterDir="false" />
+    <list default="true" id="13eab148-53e0-4134-b0d6-16a24dcd7336" name="Changes" comment="init commit">
+      <change afterPath="$PROJECT_DIR$/main_dir/at_web_app/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/registration/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/registration/templates/registration/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/registration/templates/registration/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/registration/templates/registration/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_dir/registration/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/at_web_app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/at_web_app/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/at_web_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/at_web_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/main_app/static/main_app/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/main_app/static/main_app/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/main_app/templates/main_app/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/main_app/templates/main_app/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/main_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/main_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/projects/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/projects/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/projects/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/projects/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/projects/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/projects/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/projects/static/projects/css/project_create.css" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/projects/static/projects/css/project_create.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/projects/static/projects/js/project_participants.js" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/projects/static/projects/js/project_participants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/projects/templates/projects/project_create.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/projects/templates/projects/project_create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/projects/templates/projects/project_details.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/projects/templates/projects/project_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/projects/templates/projects/project_main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/projects/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/projects/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_dir/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_dir/projects/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +38,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -61,8 +47,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;KriFinnSher&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/KriFinnSher/ProjectManager.git&quot;,
+    &quot;accountId&quot;: &quot;209785b5-40c6-4d7f-abec-c02ec4550025&quot;
+  }
+}</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -79,7 +77,9 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -87,6 +87,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -149,11 +150,41 @@
       <workItem from="1732015786586" duration="164000" />
       <workItem from="1732015958742" duration="1411000" />
       <workItem from="1732022445178" duration="8647000" />
-      <workItem from="1732034697201" duration="8968000" />
+      <workItem from="1732034697201" duration="11227000" />
+      <workItem from="1732052129071" duration="913000" />
+      <workItem from="1732053060832" duration="483000" />
+      <workItem from="1732091780074" duration="4367000" />
+      <workItem from="1732097019299" duration="9442000" />
+      <workItem from="1732187211050" duration="1000" />
+      <workItem from="1732198289418" duration="12000" />
+      <workItem from="1732206516438" duration="1000" />
+      <workItem from="1732215441597" duration="4000" />
+      <workItem from="1732219678175" duration="5000" />
+      <workItem from="1732275010539" duration="234000" />
+      <workItem from="1732275274430" duration="17340000" />
+      <workItem from="1732300825526" duration="4000" />
+      <workItem from="1732691785028" duration="11228000" />
+      <workItem from="1732779545488" duration="20025000" />
     </task>
+    <task id="LOCAL-00001" summary="init commit">
+      <option name="closed" value="true" />
+      <created>1732044337057</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732044337057</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/at_project$tests.coverage" NAME="tests Coverage Results" MODIFIED="1732101256939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/main_dir/registration" />
   </component>
 </project>

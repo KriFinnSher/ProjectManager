@@ -144,3 +144,65 @@
 .social_media:hover {
     transform: scale(1.15);
 }
+
+.login_btn {
+    background-color: #36c8ff;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: white;
+    margin-left: 13%;
+    margin-top: 150%;
+    transition-duration: 0.2s;
+}
+
+.register_btn {
+    background-color: #ffc026;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: white;
+    margin-left: 1%;
+    transition-duration: 0.2s;
+}
+
+.logout_btn {
+    background-color: #ff2c2c;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: white;
+    margin-top: 150%;
+    margin-left: 1%;
+    transition-duration: 0.2s;
+}
+
+.register_btn:hover {
+    transform: scale(1.05);
+}
+
+.login_btn:hover {
+    transform: scale(1.05);
+}
+
+.logout_btn:hover {
+    transform: scale(1.05);
+}
+
+.user_name_ref {
+    user-select: none;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: #ffffff;
+    -webkit-text-stroke: 0.5px black;
+    font-size: 14pt;
+    transition: color 0.1s ease-in-out;
+}
+
+.user_name_ref:hover {
+    color: #ffd993;
+}

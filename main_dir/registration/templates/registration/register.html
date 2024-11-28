@@ -1,0 +1,14 @@
+{% extends 'main_app/layout.html' %}
+
+{% block title %} Профиль {% endblock %}
+
+{% block content %}
+<h1>Регистрация</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+<p>Уже есть аккаунт? <a href="{% url 'login' %}">Войдите сюда</a></p>
+{% endblock %}
+

@@ -1,4 +1,13 @@
 from .models import Team, TeamMember, Project, User
+from django import template
+
+
+register = template.Library()
+
+@register.filter
+def first_two_words(value):
+    words = value.split()  # Разбиваем строку на слова
+    return ' '.join(words[:2])
 
 
 def create_project(request):
@@ -15,6 +24,7 @@ def create_project(request):
 
     participants = request.POST.getlist('participant_name')[1:]
 
+
     for i, participant_line in enumerate(participants):
         participant, role = participant_line.split(',')
         user = User.objects.get(full_name=participant)
@@ -29,6 +39,12 @@ def create_project(request):
 
     return project.id
 
+
+def show_projects(request):
+    user = request.user
+    projects = Project.objects.filter(team__members__user=user)
+
+    return projects
 
 
 
