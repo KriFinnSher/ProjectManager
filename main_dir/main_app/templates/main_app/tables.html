@@ -1,0 +1,68 @@
+{% extends 'main_app/layout.html' %}
+
+{% block title %}
+Таблица
+{% endblock %}
+
+{% block content %}
+<div class="tables_main">
+    <h2 class="tables_head">Здесь вы можете увидеть все проекты на сайте, использовать фильтры и сортировку для более точного поиска, а также экспортировать данные в удобном формате</h2>
+    <div class="filters">
+        <label for="group">Группа: </label>
+        <select class="table_select" name="group" id="group" onchange="updateTables()">
+            <option value="all_groups" selected>Все</option>
+            <option value="idb-22-10">ИДБ-22-10</option>
+            <option value="idb-22-11">ИДБ-22-11</option>
+            <option value="idb-22-12">ИДБ-22-12</option>
+            <option value="idb-22-13">ИДБ-22-13</option>
+        </select>
+
+        <label for="subject">Предмет: </label>
+        <select class="table_select" name="subject" id="subject" onchange="updateTables()">
+            <option value="all_subjects">Все</option>
+            <option value="subject1">МиАБП</option>
+            <option value="subject2">Методы оптимизации</option>
+            <option value="subject3">Машинное обучение</option>
+            <option value="subject4">Компьютерная механика</option>
+        </select>
+
+        <label for="sorts">Сортировка: </label>
+        <select class="table_select" name="sorts" id="sorts" onchange="updateTables()">
+            <option value="status_sort_inc">По статусу ↑</option>
+            <option value="status_sort_dec">По статусу ↓</option>
+            <option value="name_sort">По теме</option>
+        </select>
+
+        <hr class="project_hr">
+
+        <div id="table-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeTableModal()">&times;</span>
+                <h2 id="modal-project-theme"></h2>
+                <p id="modal-project-name"></p>
+
+                <div id="modal-project-status-wrapper">
+                    Статус: <p id="modal-project-status"></p>
+                </div>
+
+                <h3>Участники:</h3>
+                <ul class="participant_ul" id="modal-project-participants"></ul>
+
+                <div>
+                    Кол-во файлов проекта: <span id="file-count"></span>
+                </div>
+            </div>
+        </div>
+
+        {% if not tables %}
+        <div class="empty_block">
+            На данный момент на сайте нет никаких проектов ...
+        </div>
+        {% endif %}
+
+        <div class="table-header" id="table-list">
+        </div>
+    </div>
+</div>
+
+{% endblock %}

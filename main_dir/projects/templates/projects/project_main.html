@@ -6,23 +6,23 @@
 
 {% block content %}
 <div class="project_main">
-    <h2>Информация о проектах</h2>
+    <h2 class="main_h2">Информация о ваших проектах</h2>
     <div class="filters">
-        <label for="active_archive">Состояние проекта: </label>
+        <label for="active_archive" class="main_label">Состояние проекта: </label>
         <select class="project_select" name="active_archive" id="active_archive" onchange="updateProjects()">
             <option value="all_aa" selected>Все</option>
             <option value="active">Активный</option>
             <option value="archive">Архивный</option>
         </select>
 
-        <label for="sorts">Сортировка: </label>
+        <label for="sorts" class="main_label">Сортировка: </label>
         <select class="project_select" name="sorts" id="sorts" onchange="updateProjects()">
             <option value="status_sort_inc">По статусу ↑</option>
             <option value="status_sort_dec">По статусу ↓</option>
             <option value="name_sort">По теме</option>
         </select>
 
-        <label for="status">Статус: </label>
+        <label for="status" class="main_label">Статус: </label>
         <select class="project_select" name="status" id="status" onchange="updateProjects()">
             <option value="all_status">Все</option>
             <option value="not_started">Не начат</option>
@@ -36,19 +36,19 @@
         <div id="project-modal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
-                <h2 id="modal-project-theme"></h2>
+                <h2 class="modal_h2" id="modal-project-theme"></h2>
                 <p id="modal-project-name"></p>
 
                 <div id="modal-project-status-wrapper">
                     <p id="modal-project-status"></p>
                     <div id="status-edit-container" style="display: none;">
-                        <select id="status-dropdown">
+                        <select id="status-dropdown" class="modal_select">
                             <option value="not_started">Not Started</option>
                             <option value="in_progress">In Progress</option>
                             <option value="almost_done">Almost Done</option>
                             <option value="completed">Completed</option>
                         </select>
-                        <button onclick="updateProjectStatus()">Изменить</button>
+                        <button onclick="updateProjectStatus()" class="modal_btn">Изменить</button>
                     </div>
                 </div>
 

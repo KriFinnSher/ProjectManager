@@ -113,6 +113,8 @@ function openModal(projectId) {
 
             modal.dataset.isLeader = data.leader;
 
+            const addFileButton = document.getElementById('add-file-button');
+
             if (data.leader) {
                 statusEditContainer.style.display = 'block';
                 statusDropdown.value = data.status;
@@ -120,13 +122,18 @@ function openModal(projectId) {
             } else {
                 statusEditContainer.style.display = 'none';
                 statusText.style.display = 'block';
+                addFileButton.style.display = 'none';
             }
 
             const participantsList = document.getElementById('modal-project-participants');
-            participantsList.innerHTML = ''; // Очистка списка участников
+            participantsList.innerHTML = '';
             data.participants.forEach(([name, role]) => {
                 const li = document.createElement('li');
                 li.textContent = `${name} (${role})`;
+                if (role === 'leader') {
+                    li.style.fontWeight = 'bold';
+                    li.style.backgroundColor = '#2a1591';
+                }
                 participantsList.appendChild(li);
             });
 
@@ -173,9 +180,13 @@ function closeModal() {
     document.getElementById("project-modal").style.display = "none";
 }
 
+function closeTableModal() {
+    document.getElementById("table-modal").style.display = "none";
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Выполняем обновление сразу при загрузке страницы, чтобы отобразить все проекты
     updateProjects();
+    updateTables();
 });
 
 function updateProjects() {
@@ -214,7 +225,7 @@ function updateProjects() {
 
                 const projectStatus = document.createElement('div');
                 projectStatus.className = 'project-status';
-                projectStatus.textContent = `< ${project.status} >`;
+                projectStatus.textContent = `<< ${project.status} >>`;
 
                 projectCard.appendChild(projectHeader);
                 projectCard.appendChild(subjectName);
@@ -257,22 +268,19 @@ function updateProjectStatus() {
         });
 }
 
-let files = []; // Массив для хранения выбранных файлов
+let files = [];
 
 function updateFileList() {
     const fileInput = document.getElementById('project_files');
     const fileList = document.getElementById('file-list');
-    fileList.innerHTML = ''; // Очистить список перед добавлением новых элементов
+    fileList.innerHTML = '';
 
-    // Добавляем файлы, выбранные через input
     Array.from(fileInput.files).forEach(file => {
-        // Добавляем файл в список, если его еще нет
         if (!files.some(f => f.name === file.name)) {
             files.push(file);
         }
     });
 
-    // Отображаем все файлы в файле
     files.forEach((file, index) => {
         const fileDiv = document.createElement('div');
         fileDiv.classList.add('file-item');
@@ -284,28 +292,24 @@ function updateFileList() {
         fileList.appendChild(fileDiv);
     });
 
-    // Обновляем скрытые поля формы
     addHiddenInputsToFormF();
 
 }
 
 function removeFile(index) {
-    // Удаляем файл из массива
     files.splice(index, 1);
 
     updateFileInput()
-    updateFileList(); // Перерисовываем список файлов после удаления
-    addHiddenInputsToFormF(); // Обновляем скрытые поля формы
+    updateFileList();
+    addHiddenInputsToFormF();
 }
 
 function addHiddenInputsToFormF() {
     const fileListDiv = document.getElementById('file-list');
 
-    // Удаляем старые скрытые поля
     const previousInputs = document.querySelectorAll('.file-input');
     previousInputs.forEach(input => input.remove());
 
-    // Добавляем скрытые поля для каждого оставшегося файла
     files.forEach(file => {
         const hiddenInput = document.createElement('input');
         hiddenInput.type = 'hidden';
@@ -318,12 +322,10 @@ function addHiddenInputsToFormF() {
 
 function updateFileInput() {
     const fileInput = document.getElementById('project_files');
-    const dataTransfer = new DataTransfer();  // Создаем новый объект DataTransfer
+    const dataTransfer = new DataTransfer();
 
-    // Добавляем оставшиеся файлы в новый объект DataTransfer
     files.forEach(file => dataTransfer.items.add(file));
 
-    // Обновляем поле ввода, установив новые файлы
     fileInput.files = dataTransfer.files;
 }
 
@@ -332,18 +334,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const fileInput = document.getElementById('file-input');
     const addFileButton = document.getElementById('add-file-button');
 
-    // Открытие проводника при клике на кнопку "Добавить файлы"
     addFileButton.addEventListener('click', () => {
-        fileInput.click();  // Программное открытие скрытого поля ввода
+        fileInput.click();
     });
 
-    // Обработка выбранных файлов
     fileInput.addEventListener('change', (event) => {
         const files = event.target.files;
         const projectId = document.getElementById('project-modal').dataset.projectId;
         const isLeader = (document.getElementById('project-modal').dataset.isLeader === 'true');
 
-        // Добавление файлов в список на странице
         Array.from(files).forEach(file => {
             const li = document.createElement('li');
             li.innerHTML = `
@@ -363,7 +362,6 @@ document.addEventListener('DOMContentLoaded', function() {
             fileList.appendChild(li);
         });
 
-        // Отправка файлов на сервер
         const formData = new FormData();
         Array.from(files).forEach(file => {
             formData.append('files', file);
@@ -381,7 +379,6 @@ document.addEventListener('DOMContentLoaded', function() {
           }).catch(error => console.error('Ошибка:', error));
     });
 
-    // Удаление файла
     window.deleteFile = function(name, button) {
         fetch('/projects/delete_project_file/', {
             method: 'POST',
@@ -392,3 +389,85 @@ document.addEventListener('DOMContentLoaded', function() {
         }).then(() => button.parentElement.remove());
     };
 });
+
+
+function updateTables() {
+    const group = document.getElementById('group').value;
+    const subject = document.getElementById('subject').value;
+    const sort = document.getElementById('sorts').value;
+    const tableList = document.getElementById('table-list');
+
+    if (!tableList) {
+        console.error('Элемент table-list не найден');
+        return;
+    }
+
+    const params = new URLSearchParams();
+    if (group !== 'all_groups') params.append('group', group);
+    if (subject !== 'all_subjects') params.append('subject', subject);
+    params.append('sort', sort);
+
+    fetch(`/tables/filter_tables?${params.toString()}`)
+        .then(response => response.json())
+        .then(data => {
+            tableList.innerHTML = '';
+
+            data.tables.forEach(table => {
+                const tableCard = document.createElement('div');
+                tableCard.className = 'table-card';
+                tableCard.setAttribute('onclick', `openModalTable('${table.id}')`);
+
+                const tableHeader = document.createElement('div');
+                tableHeader.className = 'table-header';
+                tableHeader.textContent = table.theme;
+
+                const subjectName = document.createElement('div');
+                subjectName.className = 'subject-name';
+                subjectName.textContent = `[${table.subject}]`;
+
+                const projectStatus = document.createElement('div');
+                projectStatus.className = 'project-status';
+                projectStatus.textContent = `< ${table.status} >`;
+
+                tableCard.appendChild(tableHeader);
+                tableCard.appendChild(subjectName);
+                tableCard.appendChild(projectStatus);
+
+                tableList.appendChild(tableCard);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching tables:', error);
+        });
+}
+
+
+function openModalTable(projectId) {
+    const modal = document.getElementById('table-modal');
+    modal.dataset.projectId = projectId;
+    fetch(`/projects/project_data/${projectId}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('modal-project-theme').textContent = data.theme;
+            document.getElementById('modal-project-name').textContent = `[${data.subject}]`;
+
+            const statusText = document.getElementById('modal-project-status');
+
+            statusText.textContent = `< ${data.status} >`;
+
+            const participantsList = document.getElementById('modal-project-participants');
+            participantsList.innerHTML = '';
+            data.participants.forEach(([name, role]) => {
+                const li = document.createElement('li');
+                li.textContent = `${name} (${role})`;
+                participantsList.appendChild(li);
+            });
+
+            document.getElementById('file-count').textContent = `${data.project_files.length}`;
+
+            modal.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error fetching project data:', error);
+        });
+}

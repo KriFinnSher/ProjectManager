@@ -13,7 +13,7 @@ from pathlib import Path
 
 @login_required
 def projects(request):
-    user_projects = services.show_projects(request)
+    user_projects = services.show_projects_for_user(request)
     return render(request, 'projects/project_main.html', {'projects': user_projects})
 
 
@@ -139,10 +139,6 @@ def update_project_status(request):
 def delete_project_file(request):
     data = json.loads(request.body)
     file_name = data['file_name']
-    x = ProjectFile.objects.all()
-    for i in x:
-        print(i.file)
-    print("<<<", file_name, ">>>")
     project_file = ProjectFile.objects.get(file=f'project_files/{file_name}')
     os.remove(os.path.join(settings.MEDIA_ROOT, project_file.file.name))
     project_file.delete()
