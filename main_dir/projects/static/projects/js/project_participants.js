@@ -185,9 +185,13 @@ function closeTableModal() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    updateProjects();
-    updateTables();
+    if (document.querySelector('.tables_main')) {
+        updateTables();
+    } else if (document.querySelector('.project_main')) {
+        updateProjects();
+    }
 });
+
 
 function updateProjects() {
     const state = document.getElementById('active_archive').value;
@@ -204,6 +208,9 @@ function updateProjects() {
     if (state !== 'all_aa') params.append('state', state);
     if (sort !== 'all_sorts') params.append('sort', sort);
     params.append('status', status);
+
+    console.log('Params:', params.toString());
+
 
     fetch(`/projects/filter_projects/?${params.toString()}`)
         .then(response => response.json())
@@ -330,64 +337,66 @@ function updateFileInput() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const fileList = document.getElementById('modal-project-files');
-    const fileInput = document.getElementById('file-input');
-    const addFileButton = document.getElementById('add-file-button');
+    if (document.querySelector('.project_main')) {
+        const fileList = document.getElementById('modal-project-files');
+        const fileInput = document.getElementById('file-input');
+        const addFileButton = document.getElementById('add-file-button');
 
-    addFileButton.addEventListener('click', () => {
-        fileInput.click();
-    });
-
-    fileInput.addEventListener('change', (event) => {
-        const files = event.target.files;
-        const projectId = document.getElementById('project-modal').dataset.projectId;
-        const isLeader = (document.getElementById('project-modal').dataset.isLeader === 'true');
-
-        Array.from(files).forEach(file => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <a href="${URL.createObjectURL(file)}" download="${file.name}">${file.name}</a>
-            `;
-
-            console.log(Boolean(isLeader));
-            if (isLeader) {
-                const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'Удалить';
-                deleteButton.onclick = function() {
-                    deleteFile(file.name, this);
-                };
-                li.appendChild(deleteButton);
-            }
-
-            fileList.appendChild(li);
+        addFileButton.addEventListener('click', () => {
+            fileInput.click();
         });
 
-        const formData = new FormData();
-        Array.from(files).forEach(file => {
-            formData.append('files', file);
+        fileInput.addEventListener('change', (event) => {
+            const files = event.target.files;
+            const projectId = document.getElementById('project-modal').dataset.projectId;
+            const isLeader = (document.getElementById('project-modal').dataset.isLeader === 'true');
+
+            Array.from(files).forEach(file => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <a href="${URL.createObjectURL(file)}" download="${file.name}">${file.name}</a>
+                `;
+
+                console.log(Boolean(isLeader));
+                if (isLeader) {
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Удалить';
+                    deleteButton.onclick = function() {
+                        deleteFile(file.name, this);
+                    };
+                    li.appendChild(deleteButton);
+                }
+
+                fileList.appendChild(li);
+            });
+
+            const formData = new FormData();
+            Array.from(files).forEach(file => {
+                formData.append('files', file);
+            });
+            formData.append('project_id', projectId);
+
+            fetch('/projects/upload_project_files/', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                      console.log('Файлы успешно добавлены');
+                  }
+              }).catch(error => console.error('Ошибка:', error));
         });
-        formData.append('project_id', projectId);
 
-        fetch('/projects/upload_project_files/', {
-            method: 'POST',
-            body: formData
-        }).then(response => response.json())
-          .then(data => {
-              if (data.success) {
-                  console.log('Файлы успешно добавлены');
-              }
-          }).catch(error => console.error('Ошибка:', error));
-    });
-
-    window.deleteFile = function(name, button) {
-        fetch('/projects/delete_project_file/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ file_name: name }),
-        }).then(() => button.parentElement.remove());
-    };
+        window.deleteFile = function(name, button) {
+            fetch('/projects/delete_project_file/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ file_name: name }),
+            }).then(() => button.parentElement.remove());
+        };
+    }
 });
 
 
@@ -417,21 +426,33 @@ function updateTables() {
                 tableCard.className = 'table-card';
                 tableCard.setAttribute('onclick', `openModalTable('${table.id}')`);
 
+                const tableContent = document.createElement('div');
+                tableContent.className = 'table-content';
+
                 const tableHeader = document.createElement('div');
                 tableHeader.className = 'table-header';
-                tableHeader.textContent = table.theme;
+                tableHeader.textContent = `Тема проекта: ${table.theme}`;
 
                 const subjectName = document.createElement('div');
-                subjectName.className = 'subject-name';
-                subjectName.textContent = `[${table.subject}]`;
+                subjectName.className = 'team-name';
+                subjectName.textContent = `Команда: ${table.team}`;
 
                 const projectStatus = document.createElement('div');
                 projectStatus.className = 'project-status';
-                projectStatus.textContent = `< ${table.status} >`;
+                projectStatus.textContent = `Статус: ${table.status}`;
 
-                tableCard.appendChild(tableHeader);
-                tableCard.appendChild(subjectName);
-                tableCard.appendChild(projectStatus);
+                const tableGroup = document.createElement('div');
+                tableGroup.className = 'table-group';
+                tableGroup.textContent = table.group;
+
+                tableContent.appendChild(tableHeader);
+                tableContent.appendChild(subjectName);
+                tableContent.appendChild(projectStatus);
+
+                tableCard.appendChild(tableContent);
+                tableCard.appendChild(tableGroup);
+
+
 
                 tableList.appendChild(tableCard);
             });
@@ -460,6 +481,10 @@ function openModalTable(projectId) {
             data.participants.forEach(([name, role]) => {
                 const li = document.createElement('li');
                 li.textContent = `${name} (${role})`;
+                if (role === 'leader') {
+                    li.style.fontWeight = 'bold';
+                    li.style.backgroundColor = '#e39802';
+                }
                 participantsList.appendChild(li);
             });
 

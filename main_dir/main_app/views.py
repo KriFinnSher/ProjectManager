@@ -49,8 +49,16 @@ def filter_tables(request):
             'theme': project.theme,
             'subject': project.subject,
             'status': project.status,
+            'team': project.team.team_name,
+            'group': '',
         }
         for project in projects
     ]
+
+    for table in tables:
+        for t in TeamMember.objects.all():
+            if t.role == 'leader' and t.team.team_name == table['team']:
+                table['group'] = t.user.university_group
+
 
     return JsonResponse({'tables': tables})

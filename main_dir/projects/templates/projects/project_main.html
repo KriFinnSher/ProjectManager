@@ -33,47 +33,48 @@
 
         <hr class="project_hr">
 
-        <div id="project-modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <h2 class="modal_h2" id="modal-project-theme"></h2>
-                <p id="modal-project-name"></p>
+        <div class="scrollable-content_p">
+            <div id="project-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2 class="modal_h2" id="modal-project-theme"></h2>
+                    <p id="modal-project-name"></p>
 
-                <div id="modal-project-status-wrapper">
-                    <p id="modal-project-status"></p>
-                    <div id="status-edit-container" style="display: none;">
-                        <select id="status-dropdown" class="modal_select">
-                            <option value="not_started">Not Started</option>
-                            <option value="in_progress">In Progress</option>
-                            <option value="almost_done">Almost Done</option>
-                            <option value="completed">Completed</option>
-                        </select>
-                        <button onclick="updateProjectStatus()" class="modal_btn">Изменить</button>
+                    <div id="modal-project-status-wrapper">
+                        <p id="modal-project-status"></p>
+                        <div id="status-edit-container" style="display: none;">
+                            <select id="status-dropdown" class="modal_select">
+                                <option value="not_started">Not Started</option>
+                                <option value="in_progress">In Progress</option>
+                                <option value="almost_done">Almost Done</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                            <button onclick="updateProjectStatus()" class="modal_btn">Изменить</button>
+                        </div>
                     </div>
+
+                    <h3>Участники:</h3>
+                    <ul class="participant_ul" id="modal-project-participants"></ul>
+
+                    <h3>Файлы проекта:</h3>
+                    <button id="add-file-button" onclick="">Добавить файлы</button>
+                    <input type="file" id="file-input" style="display: none;" multiple />
+                    <ul class="participant_ul" id="modal-project-files"></ul>
+
                 </div>
+            </div>
 
-                <h3>Участники:</h3>
-                <ul class="participant_ul" id="modal-project-participants"></ul>
+            {% if not projects %}
+            <div class="empty_block">
+                У вас пока нет никаких проектов, но вы всегда можете их начать )
+                <a href="{% url 'create_project' %}" class="btn_">Создать проект</a>
+            </div>
+            {% endif %}
 
-                <h3>Файлы проекта:</h3>
-                <button id="add-file-button" onclick="">Добавить файлы</button>
-                <input type="file" id="file-input" style="display: none;" multiple />
-                <ul class="participant_ul" id="modal-project-files"></ul>
+            <div class="project-header" id="project-list">
 
             </div>
         </div>
-
-        {% if not projects %}
-        <div class="empty_block">
-            У вас пока нет никаких проектов, но вы всегда можете их начать )
-            <a href="{% url 'create_project' %}" class="btn_">Создать проект</a>
-        </div>
-        {% endif %}
-
-        <div class="project-header" id="project-list">
-
-        </div>
-
     </div>
 
 </div>
