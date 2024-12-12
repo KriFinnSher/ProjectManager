@@ -1,7 +1,8 @@
+import csv
+from django.http import HttpResponse, JsonResponse
 from . import Services
 from django.shortcuts import render
 from projects.models import Project, TeamMember, ProjectFile
-from django.http import JsonResponse
 from django.db.models import Case, When, Value, IntegerField
 
 
@@ -62,3 +63,47 @@ def filter_tables(request):
 
 
     return JsonResponse({'tables': tables})
+
+
+def export_file(request):
+    group_filter = request.GET.get('group', 'all_groups')
+    subject_filter = request.GET.get('subject', 'all_subjects')
+    sort_filter = request.GET.get('sort', 'name_sort')
+
+    projects = Project.objects.all()
+
+    if group_filter != 'all_groups':
+        projects = projects.filter(
+            team__members__role='leader',
+            team__members__user__university_group=group_filter
+        )
+
+    if subject_filter != 'all_subjects':
+        projects = projects.filter(subject=subject_filter)
+
+    if sort_filter in ['status_sort_inc', 'status_sort_dec']:
+        status_order = {'not_started': 1, 'in_progress': 2, 'almost_done': 3, 'completed': 4}
+        projects = projects.annotate(status_order=Case(
+            *[When(status=k, then=Value(v)) for k, v in status_order.items()],
+            output_field=IntegerField()
+        )).order_by('status_order' if sort_filter == 'status_sort_inc' else '-status_order')
+    else:
+        projects = projects.order_by('theme')
+
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = f'attachment; filename="{group_filter}_{subject_filter}.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['ID', 'Theme', 'Subject', 'Status', 'Team', 'Group'])
+
+    for project in projects:
+        group = ''
+        for t in TeamMember.objects.all():
+            if t.role == 'leader' and t.team.team_name == project.team.team_name:
+                group = t.user.university_group
+                break
+
+        writer.writerow([project.id, project.theme, project.subject, project.status, project.team.team_name, group])
+
+    return response
+

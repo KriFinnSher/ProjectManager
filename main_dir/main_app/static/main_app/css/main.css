@@ -330,4 +330,49 @@
     border: 2px solid #c18b00;
 }
 
+.export_btn {
+    margin-top: 1%;
+    background-color: #323232;
+    color: #fff;
+    font-size: 20px;
+    padding: 0.5%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
+.export_btn:hover {
+    transform: scale(1.03);
+}
+
+.help_block {
+    font-family: 'Courier New', monospace;
+    text-align: left;
+    margin-left: 1%;
+    font-size: 18px;
+}
+
+.prolog_title,
+.for_who_title,
+.block_title {
+    color: #2980b9;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.prolog_block,
+.for_who_block,
+.block {
+    background-color: #c5eeff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 1%;
+    padding: 2%;
+}
+
+body {
+    background-color: #ddf3ff;
+}
+
+.blocks, .help_title {
+    color: #005b91;
+}

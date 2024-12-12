@@ -416,6 +416,8 @@ function updateTables() {
     if (subject !== 'all_subjects') params.append('subject', subject);
     params.append('sort', sort);
 
+    console.log(params)
+
     fetch(`/tables/filter_tables?${params.toString()}`)
         .then(response => response.json())
         .then(data => {
@@ -495,4 +497,24 @@ function openModalTable(projectId) {
         .catch(error => {
             console.error('Error fetching project data:', error);
         });
+}
+
+
+function fileExport() {
+    const group = document.getElementById('group').value;
+    const subject = document.getElementById('subject').value;
+    const sort = document.getElementById('sorts').value;
+
+    const params = new URLSearchParams();
+    if (group !== 'all_groups') params.append('group', group);
+    if (subject !== 'all_subjects') params.append('subject', subject);
+    params.append('sort', sort);
+
+    const downloadLink = document.createElement('a');
+    downloadLink.href = `/tables/export_file?${params.toString()}`;
+    downloadLink.target = '_blank';
+    downloadLink.download = `${group}_${subject}.csv`;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
 }
