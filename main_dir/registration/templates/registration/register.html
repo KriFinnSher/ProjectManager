@@ -3,12 +3,31 @@
 {% block title %} Профиль {% endblock %}
 
 {% block content %}
-<h1>Регистрация</h1>
+<h1 class="reg_title">Регистрация</h1>
     <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Зарегистрироваться</button>
-    </form>
-<p>Уже есть аккаунт? <a href="{% url 'login' %}">Войдите сюда</a></p>
+    {% csrf_token %}
+        <div class="form-group_">
+            <label for="{{ form.full_name.id_for_label }}" class="form-label">ФИО:</label>
+            {{ form.full_name }}
+        </div>
+
+        <div class="form-group_">
+            <label for="{{ form.university_group.id_for_label }}" class="form-label">Учебная группа:</label>
+            {{ form.university_group }}
+        </div>
+
+        <div class="form-group_">
+            <label for="{{ form.email.id_for_label }}" class="form-label">Email:</label>
+            {{ form.email }}
+        </div>
+
+        <div class="form-group_">
+            <label for="{{ form.password.id_for_label }}" class="form-label">Пароль:</label>
+            {{ form.password }}
+        </div>
+
+    <button type="submit" class="reg_btn">Зарегистрироваться</button>
+</form>
+<p class="reg_p">Уже есть аккаунт? <a href="{% url 'login' %}" class="reg_a">Войти</a></p>
 {% endblock %}
 

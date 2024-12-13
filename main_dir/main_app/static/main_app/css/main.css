@@ -376,3 +376,58 @@ body {
 .blocks, .help_title {
     color: #005b91;
 }
+
+.reg_title {
+    font-family: 'Courier New', monospace;
+    font-size: 28px;
+}
+
+.form-group_ {
+    display: flex;
+    align-items: center;
+    margin-left: 40%;
+    margin-bottom: 2%;
+}
+
+.form-label {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    width: 15%;
+    text-align: left;
+}
+
+.form-control {
+    background-color: #007cca;
+    border-color: #004d7e;
+    border-radius: 4px;
+    width: 20%;
+    padding: 0.3%;
+    color: #fff;
+}
+
+.reg_btn {
+    color: #fff;
+    background-color: #007bc8;
+    padding: 0.5%;
+    transition: background-color 0.2s, box-shadow 0.2s ease;
+}
+
+.reg_btn:hover {
+    background-color: #0065a3;
+}
+
+.reg_p {
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 2%;
+}
+
+.reg_a {
+    text-decoration: none;
+    user-select: none;
+    color: #0064a2;
+    transition: color 0.2s;
+}
+
+.reg_a:hover {
+    color: #ffc600;
+}
