@@ -4,7 +4,7 @@ from projects.models import User
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['avatar', 'status']
+        fields = ['avatar', 'status', 'university_group']
 
 
 class RegistrationForm(forms.ModelForm):

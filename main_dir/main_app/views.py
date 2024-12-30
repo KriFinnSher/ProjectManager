@@ -36,7 +36,7 @@ def filter_tables(request):
         projects = projects.filter(subject=subject_filter)
 
     if sort_filter in ['status_sort_inc', 'status_sort_dec']:
-        status_order = {'not_started': 1, 'in_progress': 2, 'almost_done': 3, 'completed': 4}
+        status_order = {'не начат': 1, 'в процессе': 2, 'почти закончен': 3, 'завершен': 4}
         projects = projects.annotate(status_order=Case(
             *[When(status=k, then=Value(v)) for k, v in status_order.items()],
             output_field=IntegerField()
@@ -82,7 +82,7 @@ def export_file(request):
         projects = projects.filter(subject=subject_filter)
 
     if sort_filter in ['status_sort_inc', 'status_sort_dec']:
-        status_order = {'not_started': 1, 'in_progress': 2, 'almost_done': 3, 'completed': 4}
+        status_order = {'не начат': 1, 'в процессе': 2, 'почти закончен': 3, 'завершен': 4}
         projects = projects.annotate(status_order=Case(
             *[When(status=k, then=Value(v)) for k, v in status_order.items()],
             output_field=IntegerField()
@@ -90,7 +90,7 @@ def export_file(request):
     else:
         projects = projects.order_by('theme')
 
-    response = HttpResponse(content_type='text/csv')
+    response = HttpResponse(content_type='text/csv; charset=utf-8-sig')
     response['Content-Disposition'] = f'attachment; filename="{group_filter}_{subject_filter}.csv"'
 
     writer = csv.writer(response)

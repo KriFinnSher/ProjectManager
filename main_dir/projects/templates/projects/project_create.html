@@ -6,37 +6,42 @@
 
 {% block content %}
 <div class="project_create_body">
-    <div class="form-container">
+        <div class="form-container">
         <h2>Создание проекта</h2>
         <form action="/projects/submit_form" method="post" enctype="multipart/form-data">
             {% csrf_token %}
 
+            {% if team_name_error %}
+                <small style="color: red; font-size: 16px;">{{ team_name_error }}</small>
+            {% endif %}
             <div class="form-group">
                 <label>Введите название вашей команды: </label>
-                <input class="temp" type="text" id="team_name" name="team_name" placeholder="Мое название">
+                <input class="temp" type="text" id="team_name" name="team_name" placeholder="Мое название" value="{{ form_data.team_name|default:'' }}">
             </div>
 
             <div class="form-group">
                 <label>Введите тему вашего проекта: </label>
-                <input class="temp" type="text" id="project_name" name="project_name" placeholder="Моя тема">
+                <input class="temp" type="text" id="project_name" name="project_name" placeholder="Моя тема" required value="{{ form_data.project_name|default:'' }}">
             </div>
 
             <div class="form-group">
                 <label for="subject">Выберите предмет из списка:</label>
                 <select class="create_select" id="subject" name="subject">
-                    <option value="subject1">Предмет 1</option>
-                    <option value="subject2">Предмет 2</option>
-                    <option value="subject3">Предмет 3</option>
+                    <option value="MiABP" {% if form_data.subject == "MiABP" %}selected{% endif %}>МиАБП</option>
+                    <option value="Методы оптимизации" {% if form_data.subject == "Методы оптимизации" %}selected{% endif %}>Методы оптимизации</option>
+                    <option value="Машинное обучение" {% if form_data.subject == "Машинное обучение" %}selected{% endif %}>Машинное обучение</option>
+                    <option value="Компьютерная механика" {% if form_data.subject == "Компьютерная механика" %}selected{% endif %}>Компьютерная механика</option>
+                    <option value="Теория управления" {% if form_data.subject == "Теория управления" %}selected{% endif %}>Теория управления</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label>Укажите тип проекта:</label>
                 <div class="radio-group">
-                    <input type="radio" id="solo_project" name="project_type" value="solo_project">
+                    <input type="radio" id="solo_project" name="project_type" value="одиночный">
                     <label for="solo_project">Одиночный</label>
-                    <input type="radio" id="group_project" name="project_type" value="group_project" checked>
-                    <label for="group_project">Командный</label>
+                    <input type="radio" id="group_project" name="project_type" value="групповой" checked>
+                    <label for="group_project">Групповой</label>
                 </div>
             </div>
 
@@ -50,19 +55,28 @@
                         <input type="checkbox" id="leader" name="leader">
                         <label for="leader">Лидер</label>
                     </div>
+                    {% if participants_error %}
+                        <div style="color: red; font-size: 16px;">{{ participants_error }}</div>
+                    {% endif %}
+                    {% if count_error %}
+                        <div style="color: red; font-size: 16px;">{{ count_error }}</div>
+                    {% endif %}
                 </div>
                 <div id="participants-list">
                 </div>
+                {% if name_error %}
+                    <div style="color: red; font-size: 16px;">{{ name_error }}</div>
+                {% endif %}
             </div>
 
 
             <div class="form-group">
                 <label for="status">Укажите текущий статус проекта:</label>
                 <select class="create_select" id="status" name="status">
-                    <option value="not_started">Не начат</option>
-                    <option value="in_progress">В процессе</option>
-                    <option value="almost_done"> Почти закончил</option>
-                    <option value="completed">Завершен</option>
+                    <option value="не начат" {% if form_data.status == "не начат" %}selected{% endif %}>Не начат</option>
+                    <option value="в процессе" {% if form_data.status == "в процессе" %}selected{% endif %}>В процессе</option>
+                    <option value="почти закончен" {% if form_data.status == "почти закончен" %}selected{% endif %}>Почти закончен</option>
+                    <option value="завершен" {% if form_data.status == "завершен" %}selected{% endif %}>Завершен</option>
                 </select>
             </div>
 

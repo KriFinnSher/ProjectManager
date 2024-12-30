@@ -41,15 +41,15 @@ class User(AbstractUser):
 
 class Team(models.Model):
     TEAM_TYPES = [
-        ('solo_project', 'Solo Project'),
-        ('group_project', 'Group Project'),
+        ('одиночный', 'Одиночный'),
+        ('групповой', 'Групповой'),
     ]
 
-    team_name = models.CharField(max_length=40)
+    team_name = models.CharField(max_length=40, null=True, blank=True)
     team_type = models.CharField(max_length=20, choices=TEAM_TYPES)
 
     def __str__(self):
-        return self.team_name
+        return f'{self.team_name} [{self.team_type}]'
 
 
 
@@ -70,15 +70,15 @@ class TeamMember(models.Model):
 
 class Project(models.Model):
     STATUS_CHOICES = [
-        ('not_started', 'Not Started'),
-        ('in_progress', 'In Progress'),
-        ('almost_done', 'Almost Done'),
-        ('completed', 'Completed'),
+        ('не начат', 'Не начат'),
+        ('в процессе', 'В процессе'),
+        ('почти закончен', 'Почти закончен'),
+        ('завершен', 'Завершен'),
     ]
     theme = models.CharField(max_length=50)
     subject = models.CharField(max_length=50)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='not_started')
-    team = models.ForeignKey(Team, on_delete=models.SET_NULL, null=True, related_name='projects')
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='projects')
 
     def __str__(self):
         return f'{self.subject} [{self.theme}]'

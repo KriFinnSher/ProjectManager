@@ -4,7 +4,7 @@ from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Project, TeamMember, ProjectFile
+from .models import Project, TeamMember, ProjectFile, User
 from . import services
 from django.http import JsonResponse
 from django.db.models import Case, When, Value, IntegerField, Q
@@ -24,6 +24,42 @@ def project_create(request):
 
 def submit_form(request):
     if request.method == "POST":
+        participants = request.POST.getlist('participant_name')[1:]
+        if len(participants) == 0:
+            return render(request, 'projects/project_create.html', {
+                'participants_error': 'Количество участников должно быть ненулевым',
+                    'form_data': request.POST,
+            })
+
+        for participant in participants:
+            participant = participant.split(',')[0]
+            try:
+                User.objects.get(full_name=participant)
+            except User.DoesNotExist:
+                return render(request, 'projects/project_create.html', {
+                    'name_error': f'Участник {participant} не найден',
+                    'form_data': request.POST,
+                })
+
+        project_type = request.POST["project_type"]
+        if project_type == "одиночный":
+            if len(participants) > 1:
+                return render(request, 'projects/project_create.html', {
+                    'count_error': f'Одиночный проект предназначен ровно для одного участника',
+                    'form_data': request.POST,
+                })
+        else:
+            if len(participants) < 2:
+                return render(request, 'projects/project_create.html', {
+                    'count_error': f'Групповой проект предназначен минимум для двух участников',
+                    'form_data': request.POST,
+                })
+            if request.POST["team_name"] == '':
+                return render(request, 'projects/project_create.html', {
+                    'team_name_error': f'Для группового проекта необходимо указать название команды',
+                    'form_data': request.POST,
+                })
+
         project_id = services.create_project(request)
         project_instance = Project.objects.get(id=project_id)
 
@@ -52,7 +88,6 @@ def get_project_data(request, project_id):
             'file')
         project_files = [Path(item['file']).name for item in queryset]
         project_files_urls = [f'/media/{item['file']}' for item in queryset]
-        print(project_files)
 
         project_data = {
             'theme': project.theme,
@@ -77,20 +112,20 @@ def filter_projects(request):
     projects = Project.objects.filter(team__members__user=user)
 
     if state_filter == 'active':
-        state_condition = ~Q(status='completed')
+        state_condition = ~Q(status='завершен')
     elif state_filter == 'archive':
-        state_condition = Q(status='completed')
+        state_condition = Q(status='завершен')
     else:
         state_condition = Q()
 
-    if status_filter == 'not_started':
-        status_condition = Q(status='not_started')
-    elif status_filter == 'in_progress':
-        status_condition = Q(status='in_progress')
-    elif status_filter == 'almost_done':
-        status_condition = Q(status='almost_done')
-    elif status_filter == 'completed':
-        status_condition = Q(status='completed')
+    if status_filter == 'не начат':
+        status_condition = Q(status='не начат')
+    elif status_filter == 'в процессе':
+        status_condition = Q(status='в процессе')
+    elif status_filter == 'почти закончен':
+        status_condition = Q(status='почти закончен')
+    elif status_filter == 'завершен':
+        status_condition = Q(status='завершен')
     else:
         status_condition = Q()
 
@@ -98,7 +133,7 @@ def filter_projects(request):
 
 
     if sort_filter in ['status_sort_inc', 'status_sort_dec']:
-        status_order = {'not_started': 1, 'in_progress': 2, 'almost_done': 3, 'completed': 4}
+        status_order = {'не начат': 1, 'в процессе': 2, 'почти закончен': 3, 'завершен': 4}
         projects = projects.annotate(status_order=Case(
             *[When(status=k, then=Value(v)) for k, v in status_order.items()],
             output_field=IntegerField()

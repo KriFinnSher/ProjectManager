@@ -249,7 +249,7 @@ function updateProjects() {
 function updateProjectStatus() {
     const statusDropdown = document.getElementById('status-dropdown');
     const newStatus = statusDropdown.value;
-    const projectId = document.getElementById('project-modal').dataset.projectId; // Берем ID проекта из модального окна
+    const projectId = document.getElementById('project-modal').dataset.projectId;
 
     fetch(`/projects/update_project_status/`, {
         method: 'POST',

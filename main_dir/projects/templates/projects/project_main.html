@@ -25,10 +25,10 @@
         <label for="status" class="main_label">Статус: </label>
         <select class="project_select" name="status" id="status" onchange="updateProjects()">
             <option value="all_status">Все</option>
-            <option value="not_started">Не начат</option>
-            <option value="in_progress">В процессе</option>
-            <option value="almost_done">Почти закончил</option>
-            <option value="completed">Завершен</option>
+            <option value="не начат">Не начат</option>
+            <option value="в процессе">В процессе</option>
+            <option value="почти закончен">Почти закончен</option>
+            <option value="завершен">Завершен</option>
         </select>
 
         <hr class="project_hr">
@@ -44,10 +44,10 @@
                         <p id="modal-project-status"></p>
                         <div id="status-edit-container" style="display: none;">
                             <select id="status-dropdown" class="modal_select">
-                                <option value="not_started">Not Started</option>
-                                <option value="in_progress">In Progress</option>
-                                <option value="almost_done">Almost Done</option>
-                                <option value="completed">Completed</option>
+                                <option value="не начат">Не начат</option>
+                                <option value="в процессе">В процессе</option>
+                                <option value="почти закончен">Почти закончен</option>
+                                <option value="завершен">Завершен</option>
                             </select>
                             <button onclick="updateProjectStatus()" class="modal_btn">Изменить</button>
                         </div>
