@@ -1,19 +1,38 @@
 {% extends 'main_app/layout.html' %}
 
-{% block title %} Профиль {% endblock %}
+{% block title %}Профиль{% endblock %}
 
 {% block content %}
-<h1>Профиль пользователя</h1>
-
-<p>Полное имя: {{ user.full_name }}</p>
-<p>Email: {{ user.email }}</p>
-<p>Статус: {{ user.status }}</p>
-<p>Группа: {{ user.university_group }}</p>
-
-<h2>Обновить профиль</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Сохранить</button>
-</form>
+<div id="profile-page" class="profile-container">
+    <div class="profile-header">
+        <h1>Профиль пользователя</h1>
+    </div>
+    <div class="profile-content">
+        <div class="profile-avatar">
+            <label for="id_avatar">
+                {% if user.avatar %}
+                    <img src="{{ user.avatar.url }}" alt="Аватар пользователя" class="avatar-image clickable-avatar">
+                {% else %}
+                    <p>Кликните, чтобы загрузить аватар</p>
+                {% endif %}
+            </label>
+            <input type="file" id="id_avatar" name="avatar" style="display: none;">
+        </div>
+        <div class="profile-details">
+            <p><span class="label">Полное имя:</span> {{ user.full_name }}</p>
+            <p><span class="label">Email:</span> {{ user.email }}</p>
+            <p><span class="label">Группа:</span> {{ user.university_group }}</p>
+            <p><span class="label">Статус:</span> {{ user.status }}</p>
+            <p><span class="label">Кол-во проектов:</span> {{ user_projects_num }}</p>
+        </div>
+    </div>
+    <div class="profile-form">
+        <h2>Обновить статус</h2>
+        <form method="post" enctype="multipart/form-data" class="form-container1">
+            {% csrf_token %}
+            {{ form.status }}
+            <button type="submit" class="btn-save">Сохранить</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

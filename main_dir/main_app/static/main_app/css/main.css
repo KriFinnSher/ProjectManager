@@ -353,7 +353,7 @@
 .prolog_title,
 .for_who_title,
 .block_title {
-    color: #2980b9;
+    color: #d5a400;
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 15px;
@@ -362,7 +362,7 @@
 .prolog_block,
 .for_who_block,
 .block {
-    background-color: #c5eeff;
+    background-color: #ffd86f;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     margin: 1%;
@@ -370,11 +370,11 @@
 }
 
 body {
-    background-color: #ddf3ff;
+    background-color: #ffe298;
 }
 
 .blocks, .help_title {
-    color: #005b91;
+    color: #ffae00;
 }
 
 .reg_title {
