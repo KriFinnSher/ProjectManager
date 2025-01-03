@@ -348,6 +348,7 @@
     text-align: left;
     margin-left: 1%;
     font-size: 18px;
+
 }
 
 .prolog_title,
@@ -364,9 +365,9 @@
 .block {
     background-color: #ffd86f;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     margin: 1%;
     padding: 2%;
+    border: 2px dashed #ffc600;
 }
 
 body {
@@ -430,4 +431,79 @@ body {
 
 .reg_a:hover {
     color: #ffc600;
+}
+
+.news-container {
+    font-family: 'Courier New', Courier, monospace;
+    max-width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.news-container h1 {
+    color: #5c1818;
+}
+
+.news-page {
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url('/static/main_app/image/news.png');
+    background-size: cover;
+    height: 100vh;
+
+}
+
+.news-card {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #420f0f;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.news-card:hover {
+    transform: scale(1.02);
+}
+
+.news-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #6c1e1e;
+}
+
+.intro-text,
+.main-text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #852828;
+}
+
+.intro-text {
+    display: block;
+}
+.intro-text li {
+    list-style-type: none;
+}
+
+.main-text {
+    display: none;
+}
+
+.toggle-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #000;
+    background-color: #5e1515;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.toggle-btn:hover {
+    background-color: #6c1e1e;
 }

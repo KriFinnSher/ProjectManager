@@ -55,8 +55,8 @@ class Team(models.Model):
 
 class TeamMember(models.Model):
     ROLE_CHOICES = [
-        ('leader', 'Leader'),
-        ('member', 'Member'),
+        ('лидер', 'Лидер'),
+        ('участник', 'Участник'),
     ]
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -89,4 +89,4 @@ class ProjectFile(models.Model):
     file = models.FileField(upload_to="project_files/")
 
     def __str__(self):
-        return f'[{self.project.theme}] {self.file.name}'
+        return f'[{self.project.team}] {self.file.name}'

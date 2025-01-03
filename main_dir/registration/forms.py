@@ -6,6 +6,10 @@ class ProfileForm(forms.ModelForm):
         model = User
         fields = ['avatar', 'status']
 
+        widgets = {
+            'avatar': forms.FileInput(attrs={'class': 'form-control'}),
+        }
+
 
 class RegistrationForm(forms.ModelForm):
     class Meta:

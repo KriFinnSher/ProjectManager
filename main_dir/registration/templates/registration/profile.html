@@ -20,17 +20,24 @@
         </div>
         <div class="profile-details">
             <p><span class="label">Полное имя:</span> {{ user.full_name }}</p>
-            <p><span class="label">Email:</span> {{ user.email }}</p>
+            <p><span class="label">Кол-во проектов:</span> {{ user_projects_num }}</p>
             <p><span class="label">Группа:</span> {{ user.university_group }}</p>
             <p><span class="label">Статус:</span> {{ user.status }}</p>
-            <p><span class="label">Кол-во проектов:</span> {{ user_projects_num }}</p>
+
         </div>
     </div>
     <div class="profile-form">
-        <h2>Обновить статус</h2>
+        <h2>Обновить профиль</h2>
         <form method="post" enctype="multipart/form-data" class="form-container1">
             {% csrf_token %}
+            <span>Статус: </span>
             {{ form.status }}
+            <br>
+            <br>
+            <span>Аватар: </span>
+            {{ form.avatar }}
+            <br>
+            <br>
             <button type="submit" class="btn-save">Сохранить</button>
         </form>
     </div>

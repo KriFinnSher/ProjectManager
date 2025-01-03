@@ -1,0 +1,47 @@
+{% extends 'main_app/layout.html' %}
+
+{% block title %}
+Новости сайта
+{% endblock %}
+
+{% block content %}
+<div class="news-page">
+    <div class="news-container">
+        <h1>Новости</h1>
+        <div class="news-card">
+            <div class="news-title">Версия 1.0.0 - Сайт официально открылся!</div>
+            <ul class="intro-text">
+                Добавленные возможности:
+                <li>- создание собственных проектов (см. вкладка "Главная")</li>
+                <li>- управление проектами (см. вкладка "Проекты")</li>
+                <li>- просмотр всех проектов сайта (см. вкладка "Таблица")</li>
+                <li>- экспорт данных в формате .csv (см. вкладка "Таблица")</li>
+            </ul>
+            <div class="main-text">
+                Здесь основной текст новости. Он отображается после нажатия кнопки.
+            </div>
+            <button class="toggle-btn" onclick="toggleText(this)">Читать полностью</button>
+        </div>
+<!--        <div class="news-card">-->
+<!--            <div class="intro-text">Заголовок новости 2</div>-->
+<!--            <div class="main-text">-->
+<!--                Здесь основной текст второй новости. Он раскрывается при нажатии.-->
+<!--            </div>-->
+<!--            <button class="toggle-btn" onclick="toggleText(this)">Читать полностью</button>-->
+<!--        </div>-->
+    </div>
+</div>
+
+<script>
+        function toggleText(button) {
+            const mainText = button.previousElementSibling;
+            if (mainText.style.display === 'none' || !mainText.style.display) {
+                mainText.style.display = 'block';
+                button.textContent = 'Скрыть';
+            } else {
+                mainText.style.display = 'none';
+                button.textContent = 'Читать полностью';
+            }
+        }
+</script>
+{% endblock %}

@@ -18,7 +18,7 @@ function addParticipant() {
 
     participants.push({
         name: participantName,
-        role: isLeader ? 'leader' : 'member'
+        role: isLeader ? 'Лидер' : 'участник'
     });
 
     if (isLeader) {
@@ -41,7 +41,7 @@ function updateParticipantsList() {
         const participantDiv = document.createElement('div');
         participantDiv.classList.add('participant');
         participantDiv.innerHTML = `
-            ${participant.name} (${participant.role === 'leader' ? 'Лидер' : 'Участник'})
+            ${participant.name} (${participant.role === 'Лидер' ? 'Лидер' : 'Участник'})
             <button class="remove_button" type="button" onclick="removeParticipant(${index})">Удалить</button>
         `;
         participantsList.appendChild(participantDiv);
@@ -49,7 +49,7 @@ function updateParticipantsList() {
 }
 
 function removeParticipant(index) {
-    if (participants[index].role === 'leader') {
+    if (participants[index].role === 'Лидер') {
         isLeaderSelected = false;
     }
 
@@ -81,8 +81,8 @@ function addHiddenInputsToForm() {
         leaderInput.remove();
         const leaderHiddenInput = document.createElement('input');
         leaderHiddenInput.type = 'hidden';
-        leaderHiddenInput.name = 'leader';
-        leaderHiddenInput.value = participants.find(p => p.role === 'leader').name;
+        leaderHiddenInput.name = 'Лидер';
+        leaderHiddenInput.value = participants.find(p => p.role === 'Лидер').name;
         leaderHiddenInput.classList.add('leader-input');
         participantsListDiv.appendChild(leaderHiddenInput);
     } else if (!isLeaderSelected) {
@@ -115,10 +115,13 @@ function openModal(projectId) {
 
             const addFileButton = document.getElementById('add-file-button');
 
+            console.log(data.leader)
+
             if (data.leader) {
                 statusEditContainer.style.display = 'block';
                 statusDropdown.value = data.status;
                 statusText.style.display = 'none';
+                addFileButton.style.display = 'block';
             } else {
                 statusEditContainer.style.display = 'none';
                 statusText.style.display = 'block';
@@ -130,7 +133,7 @@ function openModal(projectId) {
             data.participants.forEach(([name, role]) => {
                 const li = document.createElement('li');
                 li.textContent = `${name} (${role})`;
-                if (role === 'leader') {
+                if (role === 'Лидер') {
                     li.style.fontWeight = 'bold';
                     li.style.backgroundColor = '#2a1591';
                 }
@@ -483,7 +486,7 @@ function openModalTable(projectId) {
             data.participants.forEach(([name, role]) => {
                 const li = document.createElement('li');
                 li.textContent = `${name} (${role})`;
-                if (role === 'leader') {
+                if (role === 'Лидер') {
                     li.style.fontWeight = 'bold';
                     li.style.backgroundColor = '#e39802';
                 }

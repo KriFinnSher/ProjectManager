@@ -78,7 +78,7 @@ def get_project_data(request, project_id):
         is_leader = TeamMember.objects.filter(
             user=request.user,
             team=project.team,
-            role='leader'
+            role='Лидер'
         ).exists()
 
         participants = TeamMember.objects.filter(team=project.team).select_related('user')

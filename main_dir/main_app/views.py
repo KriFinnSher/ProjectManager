@@ -18,6 +18,9 @@ def tables(request):
     tables = Services.show_all_projects(request)
     return render(request, 'main_app/tables.html', {'tables': tables})
 
+def news(request):
+    return render(request, 'main_app/news.html')
+
 
 def filter_tables(request):
     group_filter = request.GET.get('group', 'all_groups')
@@ -28,7 +31,7 @@ def filter_tables(request):
 
     if group_filter != 'all_groups':
         projects = projects.filter(
-            team__members__role='leader',
+            team__members__role='Лидер',
             team__members__user__university_group=group_filter
         )
 
@@ -58,7 +61,7 @@ def filter_tables(request):
 
     for table in tables:
         for t in TeamMember.objects.all():
-            if t.role == 'leader' and t.team.team_name == table['team']:
+            if t.role == 'Лидер' and t.team.team_name == table['team']:
                 table['group'] = t.user.university_group
 
 
@@ -74,7 +77,7 @@ def export_file(request):
 
     if group_filter != 'all_groups':
         projects = projects.filter(
-            team__members__role='leader',
+            team__members__role='Лидер',
             team__members__user__university_group=group_filter
         )
 
@@ -99,7 +102,7 @@ def export_file(request):
     for project in projects:
         group = ''
         for t in TeamMember.objects.all():
-            if t.role == 'leader' and t.team.team_name == project.team.team_name:
+            if t.role == 'Лидер' and t.team.team_name == project.team.team_name:
                 group = t.user.university_group
                 break
 
